@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900&display=swap" rel="stylesheet">
+    <title>Casa Criativa</title>
+    
+</head>
+
+<body>
+    <h2>{{ideas}}</h2>
+
+
+    <div id="container"> 
+        <section id="intro">
+            <header>
+                <a href="index.html">
+                    <img src="../src/assets/logo.png" alt="logo">
+                </a>
+            </header>
+
+            <main>
+                <p>Ficar em casa em periodos longos, nao deve ser nada facil.</p>
+            
+                <p>Por isso, iremos catalogar ideias, <strong>brincadeiras, jogos, filmes, livros, cursos, dicas</strong> 
+                    e tudo que for necessario para tornar esse momento mais interessante.</p>
+                <p>Comece clicando em <span class="red">ver ideias</span> para ver as ideias cadastradas e 
+                    contribua <span class="red">adicionando a sua ideia</span></p>
+            </main>
+            <section id="buttons">
+                <button class="botao1" onclick="onOff()">+ Adicionar ideia</button>
+                <a href="./ideias.html" class="botao2">Ver ideias</a>
+            </section>
+            
+        <footer>Com ❤ <a>Rocketseat</a></footer>
+
+        </section>
+
+        <section id="last-ideas">
+
+        {% for idea in ideas %}
+
+        <div class="idea">
+            <img 
+                src="{{idea.img} }" 
+                alt="Imagem de {{idea.title}}">
+
+            <div class="content">
+                <h3>{{idea.title}}</h3>
+                <p>{{idea.category}}</p>
+                <div class="description">
+                    {{idea.description}}
+                </div>
+                <a href="#">{{idea.url}} target="_blank"</a>
+                </div>
+        </div>
+        {% endfor %}
+        
+        </section>
+
+    </div>
+    
+    <div id="modal">
+        <div class="content">
+            <h1>Nova Ideia</h1>
+
+            <form action="">
+                
+                <div class="input-wrapper">
+                    <label for="title">Titulo da Ideia</label>
+                    <input type="text" name="title">                
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" name="categoria">     
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="image">Link da Imagem</label>
+                    <input type="url" name="image">     
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="description">Digite uma descricao para essa ideia</label>
+                    <textarea type="text" cols="30" rows="10"></textarea>     
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="link">Link da Ideia</label>
+                    <input type="url" name="link">   
+                </div>
+
+                <a href="#" onclick="onOff()">Voltar</a>
+                <button>Salvar</button>
+
+            </form>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    
+
+</body>
+</html>
